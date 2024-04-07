@@ -3,12 +3,12 @@
 >
   <div *ngIf="!drinkDetails; else detailsContent">
     <mat-progress-spinner
-      color="primary"
-      mode="indeterminate"
+      [color]="detailsConfig.progressSpinnerColor"
+      [mode]="spinnerMode"
     ></mat-progress-spinner>
   </div>
   <ng-template #detailsContent>
-    <div class="row">
+    <div class="row" *ngIf="drinkDetails">
       <div class="col-md-6">
         <img
           [src]="drinkDetails.strDrinkThumb"
@@ -29,7 +29,12 @@
         </ul>
         <h2 class="mt-4">Instructions:</h2>
         <p>{{ drinkDetails.strInstructions }}</p>
-        <button class="btn btn-primary" (click)="goToHomePage()">
+        <button
+          class="btn btn-primary"
+          [style.background-color]="detailsConfig.buttonColor"
+          [style.color]="detailsConfig.buttonTextColor"
+          (click)="goToHomePage()"
+        >
           Back to Home
         </button>
       </div>

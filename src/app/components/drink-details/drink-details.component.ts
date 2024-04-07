@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DrinkService } from 'src/app/shared/drink.service';
+import { ProgressSpinnerMode } from '@angular/material/progress-spinner';
+import config from '../../../../config.json';
 
 @Component({
   selector: 'app-drink-details',
@@ -10,12 +12,17 @@ import { DrinkService } from 'src/app/shared/drink.service';
 export class DrinkDetailsComponent implements OnInit {
   drinkId: string = '';
   drinkDetails: any;
+  detailsConfig: any = config.details;
+  spinnerMode: ProgressSpinnerMode;
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private drinkService: DrinkService
-  ) {}
+  ) {
+    this.spinnerMode = this.detailsConfig
+      .progressSpinnerMode as ProgressSpinnerMode;
+  }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((params) => {
@@ -43,6 +50,6 @@ export class DrinkDetailsComponent implements OnInit {
   }
 
   goToHomePage(): void {
-    this.router.navigate(['/']); // Navigate back to the home page
+    this.router.navigate(['/']);
   }
 }
