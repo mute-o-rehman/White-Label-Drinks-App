@@ -22,19 +22,21 @@ This project is a simple drinks app developed using the White-Label App (WLA) ap
 
 1. Clone the repository:
 
-```bash
 - git clone https://github.com/mute-o-rehman/White-Label-Drinks-App.git
 
-## Navigate to the project directory:
- - cd white-label-drinks-app
+2. Navigate to the project directory:
 
-## Install dependencies:
+- cd white-label-drinks-app
+
+3. Install dependencies:
+
 - npm install
 
-## Start the development server:
+4. Start the development server:
+
 - Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-# Configuration
+5. Configuration
 
 - The UI elements of the app can be managed and altered through the config.json file located in the src/assets directory. Below is an explanation of how each section of the config.json file can be used:
 
@@ -57,4 +59,7 @@ This project is a simple drinks app developed using the White-Label App (WLA) ap
 - Name: Configuration for displaying the drink name.
 - Ingredients: Configuration for displaying the ingredients.
 - Instructions: Configuration for displaying the instructions.
+
+```
+
 ```
