@@ -1,0 +1,53 @@
+<app-header
+  [title]="'Drink List'"
+  [dataSource]="dataSource"
+  (filterChanged)="applyFilter($event)"
+></app-header>
+
+<div class="container mt-4">
+  <div
+    class="d-flex justify-content-center align-items-center vh-100"
+    *ngIf="isLoading"
+  >
+    <mat-progress-spinner
+      color="primary"
+      mode="indeterminate"
+    ></mat-progress-spinner>
+  </div>
+  <div class="row">
+    <div class="col-md-4 mb-4" *ngFor="let drink of getSlicedData()">
+      <div class="card shadow">
+        <img
+          class="card-img-top"
+          [src]="drink.strDrinkThumb"
+          alt="{{ drink.strDrink }}"
+        />
+        <div class="card-body">
+          <h2 class="card-title">{{ drink.strDrink }}</h2>
+          <a
+            [routerLink]="['/drink', drink.idDrink]"
+            class="btn btn-primary btn-block"
+            >View Details</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="row justify-content-center"
+    *ngIf="filteredData.length === 0 && !isLoading"
+  >
+    <div class="col-md-6 text-center">
+      <h2 class="text-muted">No items found.</h2>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <mat-paginator
+        [pageSize]="6"
+        [pageSizeOptions]="[6, 12, 24]"
+        [length]="filteredData.length"
+      ></mat-paginator>
+    </div>
+  </div>
+</div>

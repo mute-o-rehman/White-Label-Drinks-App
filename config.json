@@ -1,0 +1,63 @@
+{
+  "screens": {
+    "drinkList": {
+      "title": "Drink List",
+      "apiEndpoint": "https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Alcoholic",
+      "uiElements": {
+        "header": {
+          "title": "Drinks",
+          "backgroundColor": "#007bff",
+          "textColor": "#ffffff"
+        },
+        "listItem": {
+          "imageField": "strDrinkThumb",
+          "nameField": "strDrink",
+          "backgroundColor": "#f8f9fa",
+          "textColor": "#000000"
+        },
+        "pagination": {
+          "pageSize": 6,
+          "pageSizeOptions": [6, 12, 24],
+          "backgroundColor": "#ffffff",
+          "textColor": "#000000"
+        },
+        "notFoundMessage": {
+          "text": "No drinks found.",
+          "textColor": "#dc3545"
+        },
+        "spinner": {
+          "color": "primary"
+        }
+      }
+    },
+    "drinkDetails": {
+      "title": "Drink Details",
+      "apiEndpoint": "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=",
+      "uiElements": {
+        "header": {
+          "title": "Drink Details",
+          "backgroundColor": "#007bff",
+          "textColor": "#ffffff"
+        },
+        "image": {
+          "imageField": "strDrinkThumb"
+        },
+        "name": {
+          "nameField": "strDrink"
+        },
+        "ingredients": {
+          "ingredientsField": "strIngredient1",
+          "measureField": "strMeasure1",
+          "textColor": "#000000"
+        },
+        "instructions": {
+          "instructionsField": "strInstructions",
+          "textColor": "#000000"
+        },
+        "spinner": {
+          "color": "primary"
+        }
+      }
+    }
+  }
+}

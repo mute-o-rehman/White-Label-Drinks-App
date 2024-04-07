@@ -1,0 +1,38 @@
+<div
+  class="container-fluid d-flex justify-content-center align-items-center vh-100"
+>
+  <div *ngIf="!drinkDetails; else detailsContent">
+    <mat-progress-spinner
+      color="primary"
+      mode="indeterminate"
+    ></mat-progress-spinner>
+  </div>
+  <ng-template #detailsContent>
+    <div class="row">
+      <div class="col-md-6">
+        <img
+          [src]="drinkDetails.strDrinkThumb"
+          alt="{{ drinkDetails.strDrink }}"
+          class="img-fluid rounded"
+        />
+      </div>
+      <div class="col-md-6">
+        <h2>{{ drinkDetails.strDrink }}</h2>
+        <h2>Ingredients:</h2>
+        <ul class="list-group">
+          <li
+            class="list-group-item"
+            *ngFor="let ingredient of getIngredients(drinkDetails)"
+          >
+            {{ ingredient }}
+          </li>
+        </ul>
+        <h2 class="mt-4">Instructions:</h2>
+        <p>{{ drinkDetails.strInstructions }}</p>
+        <button class="btn btn-primary" (click)="goToHomePage()">
+          Back to Home
+        </button>
+      </div>
+    </div>
+  </ng-template>
+</div>
