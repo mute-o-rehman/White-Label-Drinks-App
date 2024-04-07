@@ -59,7 +59,3 @@ This project is a simple drinks app developed using the White-Label App (WLA) ap
 - Name: Configuration for displaying the drink name.
 - Ingredients: Configuration for displaying the ingredients.
 - Instructions: Configuration for displaying the instructions.
-
-```
-
-```
