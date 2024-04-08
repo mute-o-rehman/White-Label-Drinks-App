@@ -16,7 +16,6 @@ export class DrinkListComponent implements OnInit {
   isLoading: boolean = true;
   dataSource = new MatTableDataSource<any>();
   filteredData: any[] = []; // Filtered data array
-  displayedColumns: string[] = ['name', 'image'];
   @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
 
   constructor(private drinkService: DrinkService) {}
@@ -42,17 +41,14 @@ export class DrinkListComponent implements OnInit {
     );
   }
 
-  applyFilter(event: { filterValue: string; selectedType: string }) {
+  applyFilter(event: { filterValue: string }) {
     const filterValue = event.filterValue.trim().toLowerCase();
-    const selectedType = event.selectedType.toLowerCase();
 
-    // Filter the data based on filterValue and selectedType
+    // Filter the data based on filterValue
     this.filteredData = this.dataSource.data.filter((drink: any) => {
       const nameMatch =
         !filterValue || drink.strDrink.toLowerCase().includes(filterValue);
-      const typeMatch =
-        !selectedType || drink.strDrinkType.toLowerCase() === selectedType;
-      return nameMatch && typeMatch;
+      return nameMatch;
     });
 
     // Update the paginator's length to reflect the length of the filtered data

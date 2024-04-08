@@ -13,14 +13,11 @@ export class HeaderComponent {
   backgroundColor: string = config.header.backgroundColor || '#343a40';
   textColor: string = config.header.textColor || '#ffffff';
 
-  //@Input() title: string = '';
   @Input() dataSource!: MatTableDataSource<any>; // Accept dataSource as input
-  selectedType: string = ''; // Declare selectedType property
   filterValue: string = ''; // Declare filterValue property
 
   @Output() filterChanged = new EventEmitter<{
     filterValue: string;
-    selectedType: string;
   }>();
 
   constructor() {}
@@ -28,7 +25,6 @@ export class HeaderComponent {
   applyFilter() {
     this.filterChanged.emit({
       filterValue: this.filterValue,
-      selectedType: this.selectedType,
     });
   }
 }
